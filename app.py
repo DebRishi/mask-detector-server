@@ -101,8 +101,13 @@ app = Flask(__name__)
 # Configure CORS to allow requests from all origins (this is not recommended for production)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
+# Test route
+@app.route('/', methods=['GET'])
+def helloWorld():
+    return "Hello World", 200
+
 # Define a route that handles POST requests
-@app.route('/predict', methods=['POST'])
+@app.route('/', methods=['POST'])
 def predict():
     try:
         # Get the JSON data from the POST request
